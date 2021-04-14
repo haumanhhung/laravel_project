@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/category', function () {
+Route::get('/cate', function () {
     return view('website.category');
 });
 Route::get('/post', function () {
@@ -21,11 +21,13 @@ Route::get('/post', function () {
 });
 Route::get('/', function () {
     return view('website.home');
-});
-Route::get('/ad', function () {
-    return view('admin.dashboard.index');
-});
-
+})->name('website');
+// Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+    Route::get('/ad', function () {
+        return view('admin.dashboard.index');
+    });
+    Route::resource('category','App\Http\Controllers\CategoryController');
+// });
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

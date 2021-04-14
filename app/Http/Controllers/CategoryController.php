@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Session;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin.category.index',compact('categories'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.category.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|unique:categories,name',
+            
+        ]);
+        $category = Category::create([
+             'name' => $request->name
+        ]);
+        Session::flash('success', 'Create Category Success !!');
+        return redirect()->back();
     }
 
     /**
@@ -57,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -69,7 +78,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $this->validate($request,[
+            'name' => "required|unique:categories,name,$category->name"
+            
+        ]);
+        $category->name = $request->name;
+        $category->save();
+        
+        Session::flash('success', 'Update Category Success !!');
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +97,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if($category){
+            $category->delete();
+            Session::flash('success', 'Delete Category Success !!');
+            return redirect()->route('category.index');
+        }
     }
 }
