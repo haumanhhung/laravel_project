@@ -22,12 +22,13 @@ Route::get('/post', function () {
 Route::get('/', function () {
     return view('website.home');
 })->name('website');
-// Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/ad', function () {
         return view('admin.dashboard.index');
-    });
+    })->name('indexAdmin');
     Route::resource('category','App\Http\Controllers\CategoryController');
-// });
+    Route::resource('post','App\Http\Controllers\PostController');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

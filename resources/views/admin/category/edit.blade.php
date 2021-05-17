@@ -42,7 +42,31 @@
                             @csrf
                             @method('PUT')
                             <div class="card-body">
-                                @include('../../include.errors')
+                            @if(Session::has('success'))
+                    <div class="alert alert-success">
+                        {{Session::get('success')}}
+                        @php
+                            Session::forget('success');
+                        @endphp
+                    </div>
+                    @endif
+                    @if(Session::has('fail'))
+                    <div class="alert alert-danger">
+                        {{Session::get('fail')}}
+                        @php
+                            Session::forget('fail');
+                        @endphp
+                    </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                                 <div class="form-group">
                                     <label for="name">Name Category</label>
                                     <input type="name" name="name" class="form-control" value="{{$category->name}}">

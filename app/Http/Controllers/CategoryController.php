@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Models\Category;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\CategoryRequest;
 class CategoryController extends Controller
 {
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view ('admin.category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -34,17 +34,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $this->validate($request,[
-            'name' => 'required|unique:categories,name',
-            
-        ]);
+        
         $category = Category::create([
              'name' => $request->name
         ]);
-        Session::flash('success', 'Create Category Success !!');
-        return redirect()->back();
+        return back()->with('success','Add success!!');
     }
 
     /**
@@ -78,15 +74,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $this->validate($request,[
-            'name' => "required|unique:categories,name,$category->name"
-            
-        ]);
+        
         $category->name = $request->name;
         $category->save();
-        
-        Session::flash('success', 'Update Category Success !!');
-        return redirect()->back();
+        return back()->with('success','Update success!!');
     }
 
     /**
@@ -99,8 +90,7 @@ class CategoryController extends Controller
     {
         if($category){
             $category->delete();
-            Session::flash('success', 'Delete Category Success !!');
-            return redirect()->route('category.index');
+            return back()->with('success','Delete success!!');
         }
     }
 }
