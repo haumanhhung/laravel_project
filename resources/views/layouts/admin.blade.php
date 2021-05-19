@@ -217,16 +217,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Post</p>
                 </a>
               </li>
+              
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
+          <li class="nav-item mt-auto bg-orange">
+                <a href="{{route('website')}}" class="nav-link">
+                <i class="fas fa-eye"></i>
+                  <p>View Website</p>
+                </a>
+              </li>
+          <li class="nav-item mt-auto bg-danger">
+                <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
+                  <p>Logout</p>
+                </a>
           </li>
         </ul>
       </nav>

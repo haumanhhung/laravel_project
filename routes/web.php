@@ -13,15 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/cate', function () {
-    return view('website.category');
-});
-Route::get('/post', function () {
-    return view('website.post');
-});
-Route::get('/', function () {
-    return view('website.home');
-})->name('website');
+Route::get('/category','App\Http\Controllers\FrontEndController@category')->name('website.category');
+Route::get('/post/id', 'App\Http\Controllers\FrontEndController@post')->name('website.post');
+Route::get('/', 'App\Http\Controllers\FrontEndController@home')->name('website');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/ad', function () {
         return view('admin.dashboard.index');
