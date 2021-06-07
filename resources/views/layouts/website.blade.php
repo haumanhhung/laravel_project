@@ -54,25 +54,21 @@
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="tech-index.html"><img src="{{ asset('website')}}/images/version/tech-logo.png" alt=""></a>
+                    <a class="navbar-brand" href="{{url('/')}}"><img src="{{ asset('website')}}/images/version/tech-logo.png" alt=""></a>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="tech-index.html">Home</a>
+                                <a class="nav-link" href="{{url('/')}}">Home</a>
                             </li>
+                            @foreach($categories as $category)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('website.category',$category->id)}}">{{$category->name}}</a>
+                            </li>   
+                            @endforeach
+                           
                             
-                            <li class="nav-item">
-                                <a class="nav-link" href="tech-category-01.html">Gadgets</a>
-                            </li>                   
-                            <li class="nav-item">
-                                <a class="nav-link" href="tech-category-02.html">Videos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tech-category-03.html">Reviews</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tech-contact.html">Contact Us</a>
-                            </li>
+                                       
+                            
                         </ul>
                         <ul class="navbar-nav mr-2">
                             <li class="nav-item">
@@ -125,11 +121,10 @@
                             <h2 class="widget-title">Popular Categories</h2>
                             <div class="link-widget">
                                 <ul>
-                                    <li><a href="#">Marketing <span>(21)</span></a></li>
-                                    <li><a href="#">SEO Service <span>(15)</span></a></li>
-                                    <li><a href="#">Digital Agency <span>(31)</span></a></li>
-                                    <li><a href="#">Make Money <span>(22)</span></a></li>
-                                    <li><a href="#">Blogging <span>(66)</span></a></li>
+                                @foreach ($categories as $category)
+                                    <li><a href="{{route('website.category',$category->id)}}">{{$category->name}} </a></li>
+                                    @endforeach
+                                    
                                 </ul>
                             </div><!-- end link-widget -->
                         </div><!-- end widget -->

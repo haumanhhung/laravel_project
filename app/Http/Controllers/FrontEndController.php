@@ -7,17 +7,24 @@ use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
 {
+    
+    
     public function home(){
-        $post = Post::orderBy('id','DESC')->take(5)->get();
-        $recentPosts = Post::with('category')->orderBy('id', 'DESC')->paginate(10);
-        return view('website.home', compact('post', 'recentPosts'));
+        $posts = Post::orderBy('id', 'Desc')->get();
+        $recentPosts = Post::with('category')->orderBy('id', 'Desc')->paginate(3);
+        $postsrandom = $posts->random(2);
+        return view('website.home', compact('posts', 'recentPosts','postsrandom'));
     }
-    public function category(){
-        return view('website.category');
+    public function category($id){
+        $category = Category::find($id);
+        $posts = Post::where('category_id', $category->id)->paginate(3);
+        return view('website.category', compact('category','posts'));
+        
     }
-    public function post(){
-        
-        return view('website.post');
-        
+    public function post($id){
+        $posts = Post::find($id);
+        $category = Category::all();
+        $relate = Post::where('category_id',$posts->category_id)->whereNotIn('id',[$id])->limit(2)->get();
+        return view('website.post', compact('posts','category','relate'));
     }
 }

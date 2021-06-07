@@ -9,13 +9,16 @@ class Category extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'id','name'
 
     ];
     protected static function booted(){
         static::creating(function($name){
             $name->name = strtoupper($name->name);
         });
+    }
+    public function post(){
+        return $this->HasMany('App\Models\Post');
     }
     
 }

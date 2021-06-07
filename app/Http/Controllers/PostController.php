@@ -8,9 +8,23 @@ use Illuminate\Support\Str;
 use \Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
-
+use App\Repositories;
 class PostController extends Controller
 {
+    // /**
+    //  * @var PostRepositoryInterface|\App\Repositories
+    //  */
+    // protected $postRepository;
+    // public function __construct(PostRepository $postRepository)
+    // {
+    // $this->postRepository = $postRepository;
+    // }
+    // /**
+    //  * Show all post
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+
     /**
      * Display a listing of the resource.
      *
