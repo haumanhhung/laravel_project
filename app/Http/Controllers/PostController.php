@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(20);
         return view('admin.post.index',compact('posts'));
     }
 
@@ -60,6 +60,8 @@ class PostController extends Controller
             'content' => $request->content,
             'image1' => $request->image1,
             'image2' => $request->image2,
+            'hot' => $request-> hot,
+            'source' => $request-> source,
             'category_id' => $request->category,
             'published_at' => Carbon::now(),
        ]);
@@ -102,6 +104,8 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->image1= $request->image1;
         $post->image2= $request->image2;
+        $post->hot = $request-> hot;
+        $post->source = $request-> source;
         $post->category_id= $request->category;
         $post->published_at = Carbon::now();
         $post->save();

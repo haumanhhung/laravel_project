@@ -134,13 +134,7 @@
                         <div class="widget">
                             <h2 class="widget-title">Copyrights</h2>
                             <div class="link-widget">
-                                <ul>
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Advertising</a></li>
-                                    <li><a href="#">Write for us</a></li>
-                                    <li><a href="#">Trademark</a></li>
-                                    <li><a href="#">License & Help</a></li>
-                                </ul>
+                                <div class="fb-page" data-href="https://www.facebook.com/Grace-Tour-Guide-club-Vietnam-105478171445733/" data-tabs="timeline" data-width="180" data-height="200" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/Grace-Tour-Guide-club-Vietnam-105478171445733/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Grace-Tour-Guide-club-Vietnam-105478171445733/">Grace Tour Guide club - Vietnam</a></blockquote></div>
                             </div><!-- end link-widget -->
                         </div><!-- end widget -->
                     </div><!-- end col -->
@@ -165,6 +159,7 @@
     <script src="{{ asset('website')}}/js/tether.min.js"></script>
     <script src="{{ asset('website')}}/js/bootstrap.min.js"></script>
     <script src="{{ asset('website')}}/js/custom.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=292088434997150&autoLogAppEvents=1" nonce="LlZgSoo2"></script>
 
 </body>
 </html>

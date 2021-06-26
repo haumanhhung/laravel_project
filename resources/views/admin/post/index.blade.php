@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Post List</h1>
+            <h1 class="m-0">{{__('ListPost')}}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('website')}}">Home</a></li>
-              <li class="breadcrumb-item active">Post</li>
+              <li class="breadcrumb-item"><a href="{{url('admin/ad')}}">{{__('Home')}}</a></li>
+              <li class="breadcrumb-item active">{{__('Post')}}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -23,8 +23,8 @@
           <div class="card">
               <div class="card-header">
                   <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Post List</h3>
-                      <a href="{{route('post.create')}}" class="btn btn-primary">Create Post</a>
+                      <h3 class="card-title">{{__('ListPost')}}</h3>
+                      <a href="{{route('post.create')}}" class="btn btn-primary">{{__('CreatePost')}}</a>
                       
                    </div>
               </div>
@@ -54,21 +54,21 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Title</th>
-                      <th>Category</th>
-                      <th>Date Created</th>
-                      <th>Action</th>
+                      <th style="width: 10px">ID</th>
+                      <th>{{__('Title')}}</th>
+                      <th>{{__('Category')}}</th>
+                      <th>{{__('Hot')}}</th>
+                      <th>{{__('Action')}}</th>
                       
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach($posts as $key => $post)
+                  @foreach($posts as $post)
                     <tr>
-                      <td>{{$key}}</td>
+                      <td>{{$post->id}}</td>
                       <td>{{$post->title}}</td>
                       <td>{{$post->category->name}}</td>
-                      <td>{{$post->published_at}}</td>
+                      <td>{{$post->hot}}</td>
                       <td class="d-flex">
                           <a href="{{route('post.edit', [$post->id]) }}" class="btn btn-sm btn-primary mr-1"><i class="fas fa-edit"></i></a>
                           <form action="{{route('post.destroy', [$post->id]) }}" class="mr-1" method="POST">
@@ -83,11 +83,13 @@
                     
                     
                   </tbody>
+                  
                 </table>
               </div>
               <!-- /.card-body -->
+              
             </div>
-
+            {{$posts->links()}}
           </div>
         
         </div>

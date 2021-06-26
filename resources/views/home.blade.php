@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a href="{{route('indexAdmin')}}">Truy Cập Trang Admin</a>
                 </div>
             </div>
         </div>

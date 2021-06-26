@@ -17,11 +17,10 @@ Route::get('/category/{id}','App\Http\Controllers\FrontEndController@category')-
 Route::get('/post/{id}', 'App\Http\Controllers\FrontEndController@post')->name('website.post');
 Route::get('/', 'App\Http\Controllers\FrontEndController@home')->name('website');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
-    Route::get('/ad', function () {
-        return view('admin.dashboard.index');
-    })->name('indexAdmin');
+    Route::get('/ad','App\Http\Controllers\AdminController@index' )->name('indexAdmin');
     Route::resource('category','App\Http\Controllers\CategoryController');
     Route::resource('post','App\Http\Controllers\PostController');
+    Route::get('/language/{language}','App\Http\Controllers\LanguageController@index')->name('language.index');
 });
 Auth::routes();
 

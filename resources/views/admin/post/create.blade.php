@@ -5,13 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Create Post</h1>
+            <h1 class="m-0">{{__('CreatePost')}}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('website')}}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('post.index')}}">List Post</a></li>
-              <li class="breadcrumb-item active">Create Post</li>
+              <li class="breadcrumb-item"><a href="{{ route('website')}}">{{__('Home')}}</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('post.index')}}">{{__('ListPost')}}</a></li>
+              <li class="breadcrumb-item active">{{__('CreatePost')}}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,8 +24,8 @@
           <div class="card">
               <div class="card-header">
                   <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Create Post</h3>
-                      <a href="{{route('post.index')}}" class="btn btn-primary">List Post</a>
+                      <h3 class="card-title">{{__('CreatePost')}}</h3>
+                      <a href="{{route('post.index')}}" class="btn btn-primary">{{__('ListPost')}}</a>
                       
                    </div>
               </div>
@@ -66,23 +66,39 @@
                                   </div>
                               @endif
                                 <div class="form-group">
-                                    <label for="name">Title Post</label>
+                                    <label for="name">{{__('Title')}}</label>
                                     <input type="name" name="title" class="form-control" id="title" placeholder="Enter Title Post">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Content Post</label>
-                                    <input type="name" name="content" class="form-control" id="content" placeholder="Enter Content Post">
+                                    <label for="name">{{__('Content')}}</label>
+                                    
+                                    <textarea  placeholder="Enter Content Post"name="content" class="form-control" id="content"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Image1 Post</label>
+                                    <label for="name">{{__('Image')}}</label>
                                     <input type="name" name="image1" class="form-control" id="image1" placeholder="Enter Url image1 Post">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Image2 Post</label>
+                                    <label for="name">{{__('Image')}}</label>
                                     <input type="name" name="image2" class="form-control" id="image2" placeholder="Enter Url image2 Post">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Select Category</label>
+                                    <label for="name">{{__('Hot')}}</label>
+                                    
+                                    <select name="hot" id="hot" class="form-control">
+                                        <option value="" style="display:none" selected>Select News Hot</option>
+                                        
+                                           <option value="1">HOT</option>
+                                           <option value="0">NO HOT</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">{{__('Source')}}</label>
+                                    <input type="name" name="source" class="form-control" id="source" placeholder="Enter Source Post">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">{{__('Category')}}</label>
                                     
                                     <select name="category" id="category" class="form-control">
                                         <option value="" style="display:none" selected>Select Category</option>
@@ -95,7 +111,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{__('Create')}}</button>
                             </div>
                         </form>
                         </div>

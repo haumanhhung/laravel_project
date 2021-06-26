@@ -1,0 +1,27 @@
+{
+    "Post": "Bài Viết",
+    "Manage": "Quản Lý",
+    "Category": "Danh Mục",
+    "ViewWebsite": "Xem Website",
+    "Logout": "Đăng Xuất",
+    "Home": "Trang Chủ",
+    "Name": "Tên",
+    "Action": "Hành Động",
+    "ListCategory": "Danh Sách Danh Mục",
+    "CreateCategory": "Tạo Danh Mục",
+    "Create": "Tạo",
+    "EditCategory": "Chỉnh Sửa Danh Mục",
+    "Update": "Cập Nhật",
+    "ListPost": "Danh Sách Bài Viết",
+    "CreatePost": "Tạo Bài Viết",
+    "EditPost": "Chỉnh Sửa Bài Viết",
+    "DateCreate": "Ngày Tạo",
+    "Title": "Tiêu Đề",
+    "Content": "Nội Dung",
+    "Image": "Ảnh",
+    "Hot": "Nóng",
+    "Source": "Nguồn"
+
+
+
+}

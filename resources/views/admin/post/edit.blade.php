@@ -5,13 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Create Post</h1>
+            <h1 class="m-0">{{__('EditPost')}}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('website')}}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('post.index')}}">List Post</a></li>
-              <li class="breadcrumb-item active">Create Post</li>
+              <li class="breadcrumb-item"><a href="{{url('admin/ad')}}">{{__('Home')}}</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('post.index')}}">{{__('ListPost')}}</a></li>
+              <li class="breadcrumb-item active">{{__('EditPost')}}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,8 +24,8 @@
           <div class="card">
               <div class="card-header">
                   <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Create Post</h3>
-                      <a href="{{route('post.index')}}" class="btn btn-primary">List Post</a>
+                      <h3 class="card-title">{{__('CreatePost')}}</h3>
+                      <a href="{{route('post.index')}}" class="btn btn-primary">{{__('ListPost')}}</a>
                       
                    </div>
               </div>
@@ -67,24 +67,47 @@
                                   </div>
                               @endif
                                 <div class="form-group">
-                                    <label for="name">Title Post</label>
+                                    <label for="name">{{__('Title')}}</label>
                                     <input type="name" name="title" class="form-control" id="title" value="{{$post->title}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Content Post</label>
-                                    <input type="name" name="content" class="form-control" id="content" value="{{$post->content}}">
+                                    <label for="name">{{__('Content')}}</label>
+                                    
+                                    <textarea  name="content" class="form-control" id="content">{{$post->content}}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Image1 Post</label>
+                                    <label for="name">{{__('Image')}}</label>
                                     <input type="name" name="image1" class="form-control" id="image1" value="{{$post->image1}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Image2 Post</label>
+                                    <label for="name">{{__('Image')}}</label>
                                     <input type="name" name="image2" class="form-control" id="image2" value="{{$post->image2}}">
                                 </div>
                                 <div class="form-group">
         
+                                    <label for="name">{{__('Hot')}}</label>
+                                    <select name="hot" id="hot" class="form-control">
+                                        
+                                        
                                     
+                                      @if($post->hot==1)
+                                          <option selected value="1">Hot</option>
+                                          <option value="0">No Hot</option>
+                                      @else
+                                          <option value="1">Hot</option>
+                                          <option selected value="0">No Hot</option>
+                                      @endif
+                                    </select>
+                                        
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">{{__('Source')}}</label>
+                                    <input type="name" name="source" class="form-control" id="source" value="{{$post->source}}">
+                                </div>
+                                <div class="form-group">
+        
+                                    <label for="name">{{__('Category')}}</label>
                                     <select name="category" id="category" class="form-control">
                                         
                                         @foreach ($categories as $cate)
@@ -96,7 +119,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{__('Update')}}</button>
                             </div>
                         </form>
                         </div>

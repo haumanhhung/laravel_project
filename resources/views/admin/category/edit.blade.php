@@ -5,13 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Edit Category</h1>
+            <h1 class="m-0">{{__('EditCategory')}}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{ route('website')}}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{{ route('category.index')}}">List Category</a></li>
-              <li class="breadcrumb-item active">Edit Category</li>
+              <li class="breadcrumb-item"><a href="{{url('admin/ad')}}">{{__('Home')}}</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('category.index')}}">{{__('ListCategory')}}</a></li>
+              <li class="breadcrumb-item active">{{__('EditCategory')}}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,8 +24,8 @@
           <div class="card">
               <div class="card-header">
                   <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Edit Category {{$category->name}}</h3>
-                      <a href="{{route('category.index')}}" class="btn btn-primary">List Category</a>
+                      <h3 class="card-title">{{__('EditCategory')}}: {{$category->name}}</h3>
+                      <a href="{{route('category.index')}}" class="btn btn-primary">{{__('ListCategory')}}</a>
                       
                    </div>
               </div>
@@ -68,14 +68,14 @@
                         </div>
                     @endif
                                 <div class="form-group">
-                                    <label for="name">Name Category</label>
+                                    <label for="name">{{__('Name')}}</label>
                                     <input type="name" name="name" class="form-control" value="{{$category->name}}">
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Update Category</button>
+                            <button type="submit" class="btn btn-primary">{{__('Update')}}</button>
                             </div>
                         </form>
                         </div>
